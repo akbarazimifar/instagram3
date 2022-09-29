@@ -1,0 +1,85 @@
+.signup, .login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .logo {
+    width: 45%;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 50px;
+    width: 100%;
+    margin: 7vh 0 5vh 0;
+  }
+
+  ion-input {
+    margin: 0 0 20px 0;
+    font-size: 14px;
+    border-radius: 15px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .password {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px 0;
+    padding: 0 12px 0 0;
+    border-radius: 15px;
+    box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.05);
+
+    ion-input {
+      margin: 0;
+      box-shadow: none;
+    }
+
+    ion-icon {
+      font-size: 20px;
+    }
+  }
+
+  a {
+    width: 100%;
+    margin: 5vh 0 0 0;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  p, a {
+    font-size: 14px;
+  }
+
+  small {
+    margin: 10px 0 20px 0;
+    text-align: center;
+    color: var(--ion-color-danger);
+  }
+
+  .sep {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3vh 0 5vh 0;
+    padding: 0 20px;
+
+    p {margin: 0 20px;}
+
+    hr {
+      width: 40%;
+      background-color: var(--ion-color-light-shade);
+    }
+  }
+}

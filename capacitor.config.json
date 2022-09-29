@@ -1,0 +1,13 @@
+{
+  "appId": "com.insta",
+  "appName": "Instagram",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2
+    }
+  },
+  "cordova": {}
+}

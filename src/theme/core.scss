@@ -1,0 +1,96 @@
+@font-face {
+  font-family: "Linotte";
+  src: local("Merienda"),
+    url(../../public/assets/fonts/linotte/Linotte-Regular.otf) format("truetype");
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--ion-color-primary-contrast);
+}
+
+ion-input, ion-select, textarea {
+  width: 100%;
+  margin: 8px 0;
+  height: 40px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --padding-start: 12px;
+  --padding-end: 12px;
+  padding: 12px;
+  --ion-font-family: 'Linotte';
+  background-color: transparent;
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+ion-button {
+  width: 100%;
+  min-height: 40px;
+  text-transform: none;
+  --border-radius: 15px;
+  --background: var(--ion-color-light);
+  --box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  p {
+    font-size: 16px;
+    font-family: 'Linotte';
+    color: var(--ion-color-dark-tint);    
+  }
+}
+
+ion-icon {
+  font-size: 25px;
+  color: var(--ion-color-dark-tint);
+}
+
+.meta {    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 125px;
+  ion-img {
+    margin: 10px 0;
+    width: 20%;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Linotte';
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, p, em, b {
+  color: var(--ion-color-dark-tint);
+}
+
+small {
+  font-weight: thin;
+  color: var(--ion-color-medium);
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
