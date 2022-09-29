@@ -6,6 +6,13 @@ let config = {
 }
 
 const users = {
+  fetch() {
+    return Promise.resolve()
+    .then(() => Preferences.get({key: 'user'}))
+    .then((user) => JSON.parse(user.value))
+    .then(user => user);
+  },
+
   async login(data) {
     const res = await axios.post(`${process.env.VUE_APP_API_URL}/auth/login`, data);
     if (res.status == 200) {
@@ -27,7 +34,6 @@ const users = {
     const res = await axios.post(`${process.env.VUE_APP_API_URL}/auth/register`, data);
     if (res.status == 201) {
       delete res.data.user.password;
-      console.log(res.data)
       await Preferences.set({
         key: 'user',
         value: JSON.stringify(res.data.user),
@@ -42,6 +48,7 @@ const users = {
   },
 
   async editProfile(data) {
+    console.log(data)
     const ret = await Preferences.get({ key: 'token' });
     config.headers.authorization = 'Bearer ' + JSON.parse(ret.value);
     const res = await axios.put(`${process.env.VUE_APP_API_URL}/users/edit`, data, config);

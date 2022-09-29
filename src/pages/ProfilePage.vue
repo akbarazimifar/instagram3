@@ -9,15 +9,15 @@
       <p v-if="user.description" class="desc">{{ user.description }}</p>
       <div class="stats">
         <div>
-          <h5>{{ user.publications }}</h5>
+          <h5>{{ user.nbposts }}</h5>
           <p>Posts</p>
         </div>
         <div>
-          <h5>{{ user.followers }}</h5>
+          <h5>{{ user.nbfollowers }}</h5>
           <p>Abonnés</p>
         </div>
         <div>
-          <h5>{{ user.following }}</h5>
+          <h5>{{ user.nbfollowing }}</h5>
           <p>Suivis</p>
         </div>
       </div>
@@ -53,7 +53,9 @@
 
 <script>
 import { IonAvatar, IonImg, IonIcon, IonButton } from '@ionic/vue';
-import Modal from '../components/basics/MainModal'
+import Modal from '../components/basics/MainModal';
+import { toRaw } from '@vue/reactivity';
+// import { reactive, toRaw } from 'vue'
 export default {
   name: 'ProfilePage',
   components: {
@@ -97,8 +99,13 @@ export default {
   },
   async mounted() {
     const ret = await this.$Preferences.get({ key: 'user' });
-    this.user = JSON.parse(ret.value);
-  }
+    const user = JSON.parse(ret.value);
+    this.user = toRaw(user)
+  },
+  // async ionViewWillEnter() {
+  //   const ret = await this.$Preferences.get({ key: 'user' });
+  //   this.user = JSON.parse(ret.value);
+  // }
 }
 </script>
 
@@ -191,10 +198,10 @@ ion-button {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-width: 55px;
-      min-height: 55px;
-      width: 55px;
-      height: 55px;
+      min-width: 65px;
+      min-height: 65px;
+      width: 65px;
+      height: 65px;
       box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
     }
     p {
