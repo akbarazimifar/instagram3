@@ -1,6 +1,10 @@
 <template>
   <base-layout :header="true" :navbar="true" :previous="true" @save-profile="SaveProfile()">
     <div class="edit">
+      <ion-avatar>
+        <ion-img :src="user.profile_picture"></ion-img>
+      </ion-avatar> 
+      <ion-input type="file" ref='file' @change="previewFiles"></ion-input>
       <ion-label for="name">Nom complet</ion-label>
       <ion-input name="name" type="text" v-model="user.name" placeholder="Nom complet"></ion-input>
       <ion-label for="username">Nom d'utilisateur</ion-label>
@@ -23,10 +27,12 @@
 </template>
 
 <script>
-import { IonLabel, IonInput, IonSelect, IonSelectOption, IonButton } from '@ionic/vue';
+import { IonAvatar, IonImg, IonLabel, IonInput, IonSelect, IonSelectOption, IonButton } from '@ionic/vue';
 export default {
   name: 'EditProfile',
   components: {
+    IonAvatar,
+    IonImg,
     IonLabel,
     IonInput,
     IonSelect,
@@ -49,6 +55,13 @@ export default {
     }
   },
   methods: {
+    async previewFiles(event) {
+      console.log(event.target.files);
+      const img = event.target.files[0];
+      let fd = new FormData();
+      fd.append('image', img, this.user.id);
+      await this.$users.profile(fd);
+    },
     async SaveProfile() {
       this.loading = true;
       if (!this.Uregex.test(this.user.username)) {
@@ -78,6 +91,15 @@ export default {
   align-items: center;
   width: 100%;
   padding: 15px;
+  ion-avatar {
+    height: 80px;
+    width: 80px;
+    margin: 0 0 20px 0;
+    padding: 3px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(to left, #4f5bd5, #7f50c9, #9f45b9, #b738a6, #c82e92, #db3582, #e94473, #f15665, #fd785c, #ff9a5b, #ffbb62, #feda75);
+  }
   ion-label {
     width: 100%;
     color: var(--ion-color-dark-tint);

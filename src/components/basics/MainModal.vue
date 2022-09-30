@@ -23,9 +23,9 @@ export default {
       show2: false,
       options: [
         {name: 'Paramètres généraux', value: 'Params'},
-        {name: 'Confidentialité et sécurité', value: 'CGU'},
+        {name: 'Archives', value: 'Archives'},
         {name: 'Signaler un problème', value: 'Signal'},
-        {name: 'Se déconnecter', value: 'Logout'},
+        {name: 'Se déconnecter', value: 'Logout'}
       ]
     }
   },
@@ -57,6 +57,8 @@ export default {
           this.$router.push({name: 'Home'})
           }, "200")
         }, "200");        
+      } else {
+        this.$router.push({name: value})
       }
     }
   }

@@ -54,8 +54,6 @@
 <script>
 import { IonAvatar, IonImg, IonIcon, IonButton } from '@ionic/vue';
 import Modal from '../components/basics/MainModal';
-import { toRaw } from '@vue/reactivity';
-// import { reactive, toRaw } from 'vue'
 export default {
   name: 'ProfilePage',
   components: {
@@ -63,7 +61,7 @@ export default {
     IonImg,
     IonIcon,
     IonButton,
-    Modal
+    Modal,
   },
   data() {
     return {
@@ -79,7 +77,8 @@ export default {
         '../assets/images/posts/1.jpg',
         '../assets/images/posts/2.jpg',
         '../assets/images/posts/3.jpg',
-        '../assets/images/posts/4.jpg'
+        '../assets/images/posts/4.jpg',
+        // "http://localhost:3000/images/profile/16645432857068.jpg",
       ],
       identified: [
         '../assets/images/posts/5.jpg',
@@ -99,13 +98,12 @@ export default {
   },
   async mounted() {
     const ret = await this.$Preferences.get({ key: 'user' });
-    const user = JSON.parse(ret.value);
-    this.user = toRaw(user)
+    this.user = JSON.parse(ret.value);
   },
-  // async ionViewWillEnter() {
-  //   const ret = await this.$Preferences.get({ key: 'user' });
-  //   this.user = JSON.parse(ret.value);
-  // }
+  async ionViewWillEnter() {
+    const ret = await this.$Preferences.get({ key: 'user' });
+    this.user = JSON.parse(ret.value);
+  }
 }
 </script>
 

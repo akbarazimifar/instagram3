@@ -69,6 +69,22 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/params',
+    name: 'Params',
+    component: () => import("../pages/ParamsPage.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/password',
+    name: 'Password',
+    component: () => import("../pages/PasswordPage.vue"),
+    meta: {
+      requiresAuth: true
+    }
   }
 ];
 
