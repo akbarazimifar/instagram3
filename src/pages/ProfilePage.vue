@@ -2,7 +2,7 @@
   <base-layout :navbar="!modal" :header="true" :previous="true" :modal="modal" @toggle-modal="ToggleModal">
     <div class="profile">
       <ion-avatar>
-        <ion-img :src="user.profile_picture"></ion-img>
+        <ion-img :src="'http://localhost:3000/images/profile/' + user.profile_picture"></ion-img>
       </ion-avatar>    
       <h4>{{ user.name }}</h4>
       <small>{{ user.account_type }}</small>

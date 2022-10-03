@@ -60,12 +60,21 @@ const users = {
     return res;
   },
 
-  async profile(data) {
-    console.log(data)
-    // const ret = await Preferences.get({ key: 'token' });
-    // config.headers.authorization = 'Bearer ' + JSON.parse(ret.value);
-    await axios.post(`${process.env.VUE_APP_API_URL}/images`, data);
-    // console.log(res);
+  async profilePicture(data) {
+    let ret = await Preferences.get({ key: 'token' });
+    config.headers.authorization = 'Bearer ' + JSON.parse(ret.value);
+    const res = await axios.post(`${process.env.VUE_APP_API_URL}/images`, data.image);
+    if (res.status == 201) {
+      ret = await Preferences.get({ key: 'user' });
+      let user = JSON.parse(ret.value);
+      const image = user.id + data.type.replace('image/', '.');
+      user.profile_picture = String(image);
+      await Preferences.set({
+        key: 'user',
+        value: JSON.stringify(user),
+      });
+      return res.status;
+    }
   }
 }
 
