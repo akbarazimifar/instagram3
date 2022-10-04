@@ -2,7 +2,7 @@
   <base-layout :header="true" :navbar="true" :previous="true" @save-profile="SaveProfile()">
     <div class="edit">
       <ion-avatar>
-        <ion-img :src="'http://localhost:3000/images/profile/' + user.profile_picture"></ion-img>
+        <ion-img :src="'https://vueinsta.herokuapp.com/images/profile/' + user.profile_picture"></ion-img>
       </ion-avatar> 
       <ion-input type="file" ref='file' @change="previewFiles"></ion-input>
       <ion-label for="name">Nom complet</ion-label>
