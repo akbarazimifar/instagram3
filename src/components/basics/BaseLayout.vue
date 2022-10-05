@@ -4,6 +4,7 @@
       <ion-icon name="chevron-back" class="previous" v-if="previous" @click="modal ? $emit('toggle-modal', false) : $router.go(-1)"></ion-icon>
       <h2 v-if="$route.name == 'Feed'">Instagram</h2>
       <h2 v-if="$route.name == 'Params'">Paramètres</h2>
+      <h2 v-if="$route.name == 'NewPost'">Nouveau post</h2>
       <h2 v-if="$route.name == 'Password'">Mot de passe</h2>
       <ion-icon v-if="$route.name == 'Feed'" class="messages" name="chatbubble-ellipses"></ion-icon>
       <ion-icon v-if="$route.name == 'Profile'" name="ellipsis-vertical" @click="$emit('toggle-modal', !modal ? true : false)"></ion-icon>

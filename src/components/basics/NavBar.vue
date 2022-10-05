@@ -2,7 +2,7 @@
   <div class="navbar">
     <ion-icon :name="`home${route != 'Feed' ? '-outline' : ''}`" @click="$router.push({ name: 'Feed'})"></ion-icon>
     <ion-icon :name="`search${route != 'Search' ? '-outline' : ''}`" @click="$router.push({ name: 'Search'})"></ion-icon>
-    <ion-icon :name="`add-circle${route != 'NewPst' ? '-outline' : ''}`"></ion-icon>
+    <ion-icon :name="`add-circle${route != 'NewPost' ? '-outline' : ''}`" @click="$router.push({ name: 'NewPost'})"></ion-icon>
     <ion-icon :name="`heart${route != 'Notifs' ? '-outline' : ''}`" @click="$router.push({ name: 'Notifs'})"></ion-icon>
     <ion-icon :name="`person${route != 'Profile' ? '-outline' : ''}`" @click="$router.push({ name: 'Profile'})"></ion-icon>
   </div>

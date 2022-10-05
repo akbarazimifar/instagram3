@@ -2,7 +2,7 @@
   <base-layout :header="true" :navbar="true">
     <div class="stories">
       <ion-avatar class="stories__user">
-        <ion-img :src="'http://localhost:3000/images/profile/' + user.profile_picture"></ion-img>
+        <ion-img :src="'https://vueinsta.herokuapp.com/images/profile/' + user.profile_picture"></ion-img>
       </ion-avatar>
       <ion-avatar v-for="(story, index) in stories" :key="index" :class="{new: index < 3}">
         <ion-img :src="story"></ion-img>

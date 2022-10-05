@@ -47,6 +47,14 @@ const routes = [
     }
   },
   {
+    path: '/newpost',
+    name: 'NewPost',
+    component: () => import("../pages/NewPostPage.vue"),
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
     path: '/notifs',
     name: 'Notifs',
     component: () => import("../pages/NotifsPage.vue"),

@@ -9,6 +9,7 @@ import ResizeTextarea from 'resize-textarea-vue3';
 import { Preferences } from '@capacitor/preferences';
 
 import users from './services/UserService';
+import posts from './services/PostService';
 
 /* Components */
 import BaseLayout from './components/basics/BaseLayout.vue';
@@ -47,6 +48,7 @@ const app = createApp(App)
   app.config.globalProperties.$moment = moment;
   app.config.globalProperties.$Preferences = Preferences;
   app.config.globalProperties.$users = users;
+  app.config.globalProperties.$posts = posts;
   
 router.isReady().then(() => {
   app.mount('#app');

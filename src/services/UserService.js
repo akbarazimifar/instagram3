@@ -6,6 +6,11 @@ let config = {
 }
 
 const users = {
+  async fetchCurrent() {
+    const ret = await Preferences.get({ key: 'user' });
+    return JSON.parse(ret.value);
+  },
+
   async login(data) {
     const res = await axios.post(`${process.env.VUE_APP_API_URL}/auth/login`, data);
     if (res.status == 200) {
@@ -63,7 +68,7 @@ const users = {
   async profilePicture(data) {
     let ret = await Preferences.get({ key: 'token' });
     config.headers.authorization = 'Bearer ' + JSON.parse(ret.value);
-    const res = await axios.post(`${process.env.VUE_APP_API_URL}/images`, data.image);
+    const res = await axios.post(`${process.env.VUE_APP_API_URL}/images`, data.image, config);
     if (res.status == 201) {
       ret = await Preferences.get({ key: 'user' });
       let user = JSON.parse(ret.value);

@@ -25,7 +25,7 @@ export default {
         {name: 'Paramètres généraux', value: 'Params'},
         {name: 'Archives', value: 'Archives'},
         {name: 'Signaler un problème', value: 'Signal'},
-        {name: 'Se déconnecter', value: 'Logout'}
+        {name: 'Se déconnecter', value: 'Home'}
       ]
     }
   },
@@ -46,20 +46,18 @@ export default {
   },
   methods: {
     async Choose (value) {
-      if (value == 'Logout') {
-        this.show2 = false;
-        setTimeout(async () => {
+      this.show2 = false;
+      setTimeout(async () => {
+        if (value == 'Home') {
           await this.$Preferences.remove({key: 'user'});
           await this.$Preferences.remove({key: 'token'});
-          this.$emit('toggle-modal', false);
-          setTimeout(async () => {
-            this.show1 = false;
-          this.$router.push({name: 'Home'})
-          }, "200")
-        }, "200");        
-      } else {
-        this.$router.push({name: value})
-      }
+        }
+        this.$emit('toggle-modal', false);
+        setTimeout(async () => {
+          this.show1 = false;
+          this.$router.push({name: value})
+        }, "200")
+      }, "200");   
     }
   }
 }
